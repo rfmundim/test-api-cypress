@@ -1,0 +1,29 @@
+name: Test
+
+services:
+  mongodb:
+    image: mongo:3.4.23
+    ports:
+      - 27017:27017
+
+on: 
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Start MongoDB
+
+    - name: Install Node.js
+    - uses: action/setup-node@v1
+    - with: 
+       node-version: 12.x
+    - run: npm install
+    - run: npm run dev
+    - run: npm run cy:run   
+      env: 
+         CI: true
