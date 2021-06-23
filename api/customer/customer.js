@@ -6,7 +6,8 @@ const customerSchema = new mongoose.Schema({
     name: { type: String, required: true, size: 40 },
     status: { type: String, require: true, uppercase: true, enum: ['ATIVO', 'CANCELADO'] },
     email: { type: String, required: true, size: 80 },
-    note: { type: String, required: false, size: 100 }
+    note: { type: String, required: false, size: 100 },
+    osb: { type: String, required: false, size: 100 }
 
 })
 
