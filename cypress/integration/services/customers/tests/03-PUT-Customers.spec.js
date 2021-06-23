@@ -12,7 +12,7 @@ describe('PUT', () => {
                 const id = resCustomer.body[0]._id
                 PUTCustomers.changeCustomer(id, payload).should((response) => {
                     expect(response.status).to.eq(200)
-                    expect(response.status).to.be.not.null
+                    expect(response.body).to.be.not.null
                     expect(response.duration).to.lessThan(5000)
                     expect(response.body.status).to.eq('CANCELADO')
                 })
