@@ -7,6 +7,7 @@ const customerSchema = new mongoose.Schema({
     status: { type: String, require: true, uppercase: true, enum: ['ATIVO', 'CANCELADO'] },
     email: { type: String, required: true, size: 80 },
     note: { type: String, required: false, size: 100 }
+
 })
 
 module.exports = restful.model('Customer', customerSchema)
