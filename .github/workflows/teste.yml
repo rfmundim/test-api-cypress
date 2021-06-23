@@ -17,15 +17,18 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - name: Start MongoDB
-
     - uses: actions/checkout@v2
+    
     - name: Setup node 12
       uses: actions/setup-node@v2
       with:
-        node-version: 12.x
-    - run: npm install
-    - run: npm run dev
-    - run: npm run cy:run   
-      env: 
-         CI: true
+        node-version: '12.x'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Start API
+      run: npm run dev
+    
+    - name: Test
+      run: npm run cy:run
