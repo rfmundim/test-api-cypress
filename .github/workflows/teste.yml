@@ -26,7 +26,14 @@ jobs:
     - name: Install dependencies
       run: npm install
     
-    - name: Start API and Test
-      run: | 
-          npm run dev
-          npm run cy:run
+    - name: Start API
+      run: |
+        npm run dev
+        npm wait-on http://localhost:3003
+      env:
+        CI: true
+    
+    - name: Test
+      run: npm run cy:run
+      env:
+        CI: true
