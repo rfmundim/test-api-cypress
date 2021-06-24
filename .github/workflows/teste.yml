@@ -26,8 +26,5 @@ jobs:
     - name: Install dependencies
       run: npm install
     
-    - name: Start API
-      run: npm run dev
-    
-    - name: Test
-      run: npm run cy:run
+    - name: Start API and Test
+      run: npm run dev, npm run cy:run
