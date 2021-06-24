@@ -27,7 +27,6 @@ jobs:
       run: npm install
     
     - name: Start API and Test
-      run: npm run dev --if-present
-      
-    - name: Test
-      run: npm run cy:run
+      run: | 
+          npm run dev
+          npm run cy:run
